@@ -9,24 +9,28 @@ but1.className = 'but1'
 body.append( but1);
 body.append(div1) ;
 body.append(ul) 
-const Qustions1 = { Qustions : ['What is Your Name' , ' How old Are You '] , Answers  : ['ahmad ' , 'abdulla' , 'anas ', 30 , 60 , 120 , 1 ] } 
+const Qustions1 = [{ qustion1: ['What is Your Name'] , answer1: ['ahmad ' , 'abdulla' , 'anas ' ] } , {qustion2: [' How old Are You '] , answer2   : [, 30 , 60 , 120 , 1 ] }, {correctanswer:['ahmad' , 30 ] }] 
 
 const li = document.createElement('li')
-li.append([Qustions1.Qustions[0]]) 
+
 ul.append(li) 
  
 
 const li1 = document.createElement('li')
-li1.append([Qustions1.Qustions[1]]) 
+
 ul.append(li1)
  
 const but= () => {
-    for (const key in Qustions1 ) {
+    for (let i =0 ; i< Qustions1.length ; i++ ) {
         const but1 = document.createElement('button') 
-but1.innerText =  [Qustions1.Qustions[]] 
+but1.innerText =  Qustions1[i]
 li1.append(but1) 
 ul.append(li1)
     }
 } 
 but()
  
+
+
+
+
