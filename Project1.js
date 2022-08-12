@@ -49,10 +49,20 @@ const but = () => {
     li.append(but1);
     ul.append(li);
     div1.append(li);
+    but1.addEventListener('click' ,()=> { 
+    if ( Qustions1[2].correctanswer[1] === but1.innerText )
+    console.log(true)
+ })
+ 
+    }
   }
-};
+;
 
 but();
+
+
+
+
 
 const but11= () => {
     for (let i =0 ; i< 4 ; i++ ) {
@@ -63,13 +73,15 @@ li2.append(but2)
 ul.append(li2)
 div2.append(li2)
 but2.addEventListener('click' ,()=> { 
-    Qustions1.correctanswer === true
+    if ( Qustions1[2].correctanswer[0] === but2.innerText )
     console.log(true)
  })
  
     }
 } 
 but11()
+
+
  
 
 
