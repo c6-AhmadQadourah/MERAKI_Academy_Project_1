@@ -47,11 +47,14 @@ const but = () => {
         but1.addEventListener("click", () => {
           if (Qustions1[2].correctanswer[1] === but1.innerText)
             console.log(true);
-        });
-      }
-          const butnext= document.createElement("button")
+          const butnext = document.createElement("button");
+          ul.append(butnext);
+          butnext.innerText = "NEXT Qustion";
+        
         
 
+        });
+      }
     } else if (i === 0) {
       console.log(Qustions1[0]);
       let aa = Qustions1[0].qustion;
@@ -71,9 +74,6 @@ const but = () => {
             console.log(true);
         });
       }
-      
-
-      
     }
   });
 };
