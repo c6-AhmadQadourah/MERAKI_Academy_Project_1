@@ -27,60 +27,37 @@ ul.append(li);
 
 const li2 = document.createElement("li");
 
+
 const but = () => {
-  Qustions1.forEach(function (elem, i) {
-    const p = document.createElement("p");
-    if (i === 1) {
-      console.log(Qustions1[1]);
-      let aa = Qustions1[1].qustion;
-      p.append(aa);
-      li.append(p);
-
-      for (let i = 0; i < 4; i++) {
-        const but1 = document.createElement("button");
-        but1.innerText = Qustions1[1].answer[i];
-but1.id  = 'but1'
-        li.append(but1);
-
-        ul.append(li);
-        div1.append(li);
-        but1.addEventListener("click",  () => {
-          if (Qustions1[2].correctanswer[1] === but1.innerText){
-            document.getElementById('but1').style.backgroundColor= "#ff0000 "
-            console.log(true)
-            const butnext = document.createElement("button");
-            ul.append(butnext);
-            butnext.innerText = "NEXT Qustion";
-
-          }
-           
-          
-          
-        });
-      }
-    } else if (i === 0) {
-      console.log(Qustions1[0]);
-      let aa = Qustions1[0].qustion;
-      p.append(aa);
-      li.append(p);
-
-      for (let i = 0; i < 4; i++) {
-        const but1 = document.createElement("button");
-        but1.innerText = Qustions1[0].answer[i];
+    Qustions1.forEach(function (elem, i) {
+      const p = document.createElement("p");
+      if ( Qustions1[i] === i) {
+        console.log(Qustions1[i]);
+        let aa = Qustions1[i].qustion;
+        p.append(aa);
+        li.append(p);
   
-        li.append(but1);
-
-        ul.append(li);
-        div1.append(li);
-        but1.addEventListener("click", () => {
-          if (Qustions1[2].correctanswer[0] === but1.innerText)
-            console.log(true);
-           
-        });
+        for (let j = 0; j < 4; j++) {
+          const but1 = document.createElement("button");
+          but1.innerText = Qustions1[i].answer[j];
+          but1.id = "but1";
+          li.append(but1);
+          ul.append(li);
+          div1.append(li);
+          but1.addEventListener("click", () => {
+            if (Qustions1[i].correctanswer[j] === but1.ininnerText) {
+              document.getElementById("but1").style.backgroundColor = "#ff0000 ";
+              console.log(true);
+              const butnext = document.createElement("button");
+              ul.append(butnext);
+              butnext.innerText = "NEXT Qustion";
+            }
+          });
+        }
       }
-    }
-  });
-};
+    });
+  };
+
 but();
 
 /*
@@ -106,3 +83,63 @@ but11()
  
 
 */
+
+
+/*
+
+else if (i === 0) {
+    console.log(Qustions1[0]);
+    let aa = Qustions1[0].qustion;
+    p.append(aa);
+    li.append(p);
+
+    for (let i = 0; i < 4; i++) {
+      const but1 = document.createElement("button");
+      but1.innerText = Qustions1[0].answer[i];
+
+      li.append(but1);
+
+      ul.append(li);
+      div1.append(li);
+      but1.addEventListener("click", () => {
+        if (Qustions1[2].correctanswer[0] === but1.innerText)
+          console.log(true);
+      });
+    }
+  }
+  */
+
+
+
+/*
+  const but = () => {
+    Qustions1.forEach(function (elem, i) {
+      const p = document.createElement("p");
+      if (Qustions1.length === i) {
+        console.log(Qustions1[i]);
+        let aa = Qustions1[i].qustion;
+        p.append(aa);
+        li.append(p);
+  
+        for (let j = 0; j < 4; j++) {
+          const but1 = document.createElement("button");
+          but1.innerText = Qustions1[i].answer[j];
+          but1.id = "but1";
+          li.append(but1);
+          ul.append(li);
+          div1.append(li);
+          but1.addEventListener("click", () => {
+            if (Qustions1[i].correctanswer[j] === but1.innerText) {
+              document.getElementById("but1").style.backgroundColor = "#ff0000 ";
+              console.log(true);
+              const butnext = document.createElement("button");
+              ul.append(butnext);
+              butnext.innerText = "NEXT Qustion";
+            }
+          });
+        }
+      }
+    });
+  };
+
+  */
