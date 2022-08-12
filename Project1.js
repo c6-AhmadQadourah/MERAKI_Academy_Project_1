@@ -5,10 +5,10 @@ div1.id = "Div1";
 
 const div2 = document.createElement("div");
 const ul = document.createElement("ul");
-const but1 = document.createElement("button");
-but1.innerText = "Start ";
-but1.className = "but1";
-body.append(but1);
+const but0 = document.createElement("button");
+but0.innerText = "Start ";
+but0.className = "but0";
+body.append(but0);
 body.append(div1);
 body.append(div2);
 body.append(ul);
@@ -39,20 +39,23 @@ const but = () => {
       for (let i = 0; i < 4; i++) {
         const but1 = document.createElement("button");
         but1.innerText = Qustions1[1].answer[i];
-
+but1.id  = 'but1'
         li.append(but1);
 
         ul.append(li);
         div1.append(li);
-        but1.addEventListener("click", () => {
-          if (Qustions1[2].correctanswer[1] === but1.innerText)
-            console.log(true);
-          const butnext = document.createElement("button");
-          ul.append(butnext);
-          butnext.innerText = "NEXT Qustion";
-        
-        
+        but1.addEventListener("click",  () => {
+          if (Qustions1[2].correctanswer[1] === but1.innerText){
+            document.getElementById('but1').style.backgroundColor= "#ff0000 "
+            console.log(true)
+            const butnext = document.createElement("button");
+            ul.append(butnext);
+            butnext.innerText = "NEXT Qustion";
 
+          }
+           
+          
+          
         });
       }
     } else if (i === 0) {
@@ -64,7 +67,7 @@ const but = () => {
       for (let i = 0; i < 4; i++) {
         const but1 = document.createElement("button");
         but1.innerText = Qustions1[0].answer[i];
-
+  
         li.append(but1);
 
         ul.append(li);
@@ -72,6 +75,7 @@ const but = () => {
         but1.addEventListener("click", () => {
           if (Qustions1[2].correctanswer[0] === but1.innerText)
             console.log(true);
+           
         });
       }
     }
