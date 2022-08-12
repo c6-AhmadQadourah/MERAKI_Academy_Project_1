@@ -10,59 +10,76 @@ but1.innerText = "Start ";
 but1.className = "but1";
 body.append(but1);
 body.append(div1);
-body.append(div2)
+body.append(div2);
 body.append(ul);
 
 const Qustions1 = [
   {
-    qustion1: "What is Your Name",
-    answer1: ["ahmad ", "abdulla", "anas ", " mohammad"],
+    qustion: "What is Your Name",
+    answer: ["ahmad ", "abdulla", "anas ", " mohammad"],
   },
-  { qustion2: " How old Are You ", answer2: ["30", "60", "120", "1 "] },
-  { correctanswer: ["ahmad", '30'] },
+  { qustion: " How old Are You ", answer: ["30", "60", "120", "1 "] },
+  { correctanswer: ["ahmad", "30"] },
 ];
 
-// li contains  Q2 + answers + formula for Q2 
-const Q1 = Qustions1[0].qustion1;
-console.log(Q1);
-div2.append(Q1);
-
-const Q2 = Qustions1[1].qustion2;
-console.log(Q2);
-
 const li = document.createElement("li");
-li.append(Q2);
 ul.append(li);
 
 const li2 = document.createElement("li");
 
-const A1 = Qustions1[0].answer1
-console.log(A1)
-
- const container = []
-body.append(container)
-
 const but = () => {
-  for (let i = 0; i < 4; i++) {
-    const but1 = document.createElement("button");
-    but1.innerText = Qustions1[1].answer2[i];
-    li.append(but1);
-    ul.append(li);
-    div1.append(li);
-    but1.addEventListener('click' ,()=> { 
-    if ( Qustions1[2].correctanswer[1] === but1.innerText )
-    console.log(true)
- })
- 
-    }
-  }
-;
+  Qustions1.forEach(function (elem, i) {
+    const p = document.createElement("p");
+    if (i === 1) {
+      console.log(Qustions1[1]);
+      let aa = Qustions1[1].qustion;
+      p.append(aa);
+      li.append(p);
 
+      for (let i = 0; i < 4; i++) {
+        const but1 = document.createElement("button");
+        but1.innerText = Qustions1[1].answer[i];
+
+        li.append(but1);
+
+        ul.append(li);
+        div1.append(li);
+        but1.addEventListener("click", () => {
+          if (Qustions1[2].correctanswer[1] === but1.innerText)
+            console.log(true);
+        });
+      }
+          const butnext= document.createElement("button")
+        
+
+    } else if (i === 0) {
+      console.log(Qustions1[0]);
+      let aa = Qustions1[0].qustion;
+      p.append(aa);
+      li.append(p);
+
+      for (let i = 0; i < 4; i++) {
+        const but1 = document.createElement("button");
+        but1.innerText = Qustions1[0].answer[i];
+
+        li.append(but1);
+
+        ul.append(li);
+        div1.append(li);
+        but1.addEventListener("click", () => {
+          if (Qustions1[2].correctanswer[0] === but1.innerText)
+            console.log(true);
+        });
+      }
+      
+
+      
+    }
+  });
+};
 but();
 
-
-
-
+/*
 
 const but11= () => {
     for (let i =0 ; i< 4 ; i++ ) {
@@ -84,4 +101,4 @@ but11()
 
  
 
-
+*/
