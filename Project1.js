@@ -19,7 +19,7 @@ const Qustions1 = [
     answer1: ["ahmad ", "abdulla", "anas ", " mohammad"],
   },
   { qustion2: " How old Are You ", answer2: ["30", "60", "120", "1 "] },
-  { correctanswer: ["ahmad", 30] },
+  { correctanswer: ["ahmad", '30'] },
 ];
 
 // li contains  Q2 + answers + formula for Q2 
@@ -39,6 +39,8 @@ const li2 = document.createElement("li");
 const A1 = Qustions1[0].answer1
 console.log(A1)
 
+ const container = []
+body.append(container)
 
 const but = () => {
   for (let i = 0; i < 4; i++) {
@@ -52,14 +54,22 @@ const but = () => {
 
 but();
 
-const but2= () => {
+const but11= () => {
     for (let i =0 ; i< 4 ; i++ ) {
         const but2 = document.createElement('button') 
 but2.innerText =  A1[i];
+but2.className = 'but2'
 li2.append(but2) 
 ul.append(li2)
 div2.append(li2)
+but2.addEventListener('click' ,()=> { 
+    Qustions1.correctanswer === true
+    console.log(true)
+ })
+ 
     }
 } 
-but2()
+but11()
+ 
+
 
