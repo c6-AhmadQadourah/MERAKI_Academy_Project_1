@@ -16,11 +16,14 @@ body.append(ul);
 const qustions1 = [
   {
     qustion: "What is Your Name",
-    answer: ["ahmad ", "abdulla", "anas ", " mohammad"],
-    correctanswer: ["ahmad"]
+    answer: ["ahmad ", "abdulla", "anas", " mohammad"],
+    correctanswer: "ahmad",
   },
-  { qustion: " How old Are You ", answer: ["30", "60", "120", "1 "]   , correctanswer: [ "30"]
-}
+  {
+    qustion: " How old Are You ",
+    answer: ["30", "60", "120", "1"],
+    correctanswer: "30",
+  },
 ];
 
 const li = document.createElement("li");
@@ -31,34 +34,33 @@ const li2 = document.createElement("li");
 const but = () => {
   qustions1.forEach(function (elem, i) {
     const p = document.createElement("p");
-    if (i < qustions1.length) {
-      console.log(qustions1[i]);
-      let aa = qustions1[i].qustion;
-      p.append(aa);
 
-      li.append(p);
+    let aa = elem.qustion;
+    p.append(aa);
 
-      for (let j = 0; j < 4; j++) {
-        const but1 = document.createElement("button");
-        
-        but1.innerText = qustions1[i].answer[j];
-        but1.id = "but1";
-        li.append(but1);
-        ul.append(li);
-        div1.append(li);
-        but1.addEventListener("click", () => {
-          if (qustions1[i].correctanswer[j] === but1.ininnerText) {
-            document.getElementById("but1").style.backgroundColor = "#ff0000 ";
-            console.log(true);
-            const butnext = document.createElement("button");
-            ul.append(butnext);
-            butnext.innerText = "NEXT Qustion";
-            butnext.addEventListener("click", () => {
-             
-            });
-          }
-        });
-      }
+    li.append(p);
+
+    for (let j = 0; j < elem.answer.length; j++) {
+      const but1 = document.createElement("button");
+
+      but1.innerText = elem.answer[j];
+      but1.id = elem.answer[j];
+      li.append(but1);
+      ul.append(li);
+      div1.append(li);
+      but1.addEventListener("click", (e) => {
+        console.log(e.path[0].id);
+        if (elem.correctanswer == e.target.outerText) {
+          const buttonId = document.getElementById(`${e.path[0].id}`);
+
+
+          buttonId.style.backgroundColor = "green"
+          const butnext = document.createElement("button");
+          ul.append(butnext);
+          butnext.innerText = "NEXT Qustion";
+          butnext.addEventListener("click", () => {});
+        }
+      });
     }
   });
 };
