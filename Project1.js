@@ -26,16 +26,31 @@ const qustions1 = [
   },
 ];
 
-
 const li = document.createElement("li");
 ul.append(li);
 
 const li2 = document.createElement("li");
-li.style.display='none'
+li.style.display = "none";
 
-but0.addEventListener('click' , () => {
-  li.style.display = 'block'
-})
+but0.addEventListener("click", () => {
+  li.style.display = "block";
+  let i = 0 ;
+  let q = qustions1[i];
+
+
+
+/*
+  butnext->{
+    i++
+    q = qustions1[i]
+    answers
+    -loop  answers
+          display answer
+
+  }
+*/
+
+});
 
 const but = () => {
   qustions1.forEach(function (elem, i) {
@@ -61,24 +76,22 @@ const but = () => {
       ul.append(li);
       div1.append(li);
 
-    but1.className =  'but1'
-    
+      but1.className = "but1";
+
       but1.addEventListener("click", (e) => {
         console.log(e.path[0].id);
         if (elem.correctanswer == e.target.outerText) {
           console.log(e);
           const buttonId = document.getElementById(`${e.path[0].id}`);
-          
 
           buttonId.style.backgroundColor = "green";
           const butnext = document.createElement("button");
           ul.append(butnext);
           butnext.innerText = "NEXT Qustion";
           butnext.addEventListener("click", (e) => {
-            
-            but1.innerText= ' '
-            j++
-            but1.style.display='block'
+            but1.innerText = " ";
+            j++;
+            but1.style.display = "block";
           });
         }
       });
