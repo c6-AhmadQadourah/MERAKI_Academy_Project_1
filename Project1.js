@@ -26,17 +26,29 @@ const qustions1 = [
   },
 ];
 
+
 const li = document.createElement("li");
 ul.append(li);
 
 const li2 = document.createElement("li");
+li.style.display='none'
+
+but0.addEventListener('click' , () => {
+  li.style.display = 'block'
+})
 
 const but = () => {
   qustions1.forEach(function (elem, i) {
     const p = document.createElement("p");
 
+    let out = document.createElement("output");
     let aa = elem.qustion;
-    p.append(aa);
+    out.append(elem.qustion);
+    out.id = elem.qustion[i];
+
+    console.log(out);
+
+    p.append(out);
 
     li.append(p);
 
@@ -48,17 +60,26 @@ const but = () => {
       li.append(but1);
       ul.append(li);
       div1.append(li);
+
+    but1.className =  'but1'
+    
       but1.addEventListener("click", (e) => {
         console.log(e.path[0].id);
         if (elem.correctanswer == e.target.outerText) {
+          console.log(e);
           const buttonId = document.getElementById(`${e.path[0].id}`);
+          
 
-
-          buttonId.style.backgroundColor = "green"
+          buttonId.style.backgroundColor = "green";
           const butnext = document.createElement("button");
           ul.append(butnext);
           butnext.innerText = "NEXT Qustion";
-          butnext.addEventListener("click", () => {});
+          butnext.addEventListener("click", (e) => {
+            
+            but1.innerText= ' '
+            j++
+            but1.style.display='block'
+          });
         }
       });
     }
