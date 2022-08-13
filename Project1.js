@@ -31,8 +31,8 @@ const li2 = document.createElement("li");
 const but = () => {
     Qustions1.forEach(function (elem, i) {
       const p = document.createElement("p");
-      if ( Qustions1[i] === i) {
-        console.log(Qustions1[i]);
+      if ( i === i) {
+        console.log(Qustions1[i];
         let aa = Qustions1[i].qustion;
         p.append(aa);
         li.append(p);
