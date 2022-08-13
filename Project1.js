@@ -13,13 +13,14 @@ body.append(div1);
 body.append(div2);
 body.append(ul);
 
-const Qustions1 = [
+const qustions1 = [
   {
     qustion: "What is Your Name",
     answer: ["ahmad ", "abdulla", "anas ", " mohammad"],
+    correctanswer: ["ahmad"]
   },
-  { qustion: " How old Are You ", answer: ["30", "60", "120", "1 "] },
-  { correctanswer: ["ahmad", "30"] },
+  { qustion: " How old Are You ", answer: ["30", "60", "120", "1 "]   , correctanswer: [ "30"]
+}
 ];
 
 const li = document.createElement("li");
@@ -27,36 +28,40 @@ ul.append(li);
 
 const li2 = document.createElement("li");
 
-
 const but = () => {
-    Qustions1.forEach(function (elem, i) {
-      const p = document.createElement("p");
-      if ( i === i) {
-        console.log(Qustions1[i];
-        let aa = Qustions1[i].qustion;
-        p.append(aa);
-        li.append(p);
-  
-        for (let j = 0; j < 4; j++) {
-          const but1 = document.createElement("button");
-          but1.innerText = Qustions1[i].answer[j];
-          but1.id = "but1";
-          li.append(but1);
-          ul.append(li);
-          div1.append(li);
-          but1.addEventListener("click", () => {
-            if (Qustions1[i].correctanswer[j] === but1.ininnerText) {
-              document.getElementById("but1").style.backgroundColor = "#ff0000 ";
-              console.log(true);
-              const butnext = document.createElement("button");
-              ul.append(butnext);
-              butnext.innerText = "NEXT Qustion";
-            }
-          });
-        }
+  qustions1.forEach(function (elem, i) {
+    const p = document.createElement("p");
+    if (i < qustions1.length) {
+      console.log(qustions1[i]);
+      let aa = qustions1[i].qustion;
+      p.append(aa);
+
+      li.append(p);
+
+      for (let j = 0; j < 4; j++) {
+        const but1 = document.createElement("button");
+        
+        but1.innerText = qustions1[i].answer[j];
+        but1.id = "but1";
+        li.append(but1);
+        ul.append(li);
+        div1.append(li);
+        but1.addEventListener("click", () => {
+          if (qustions1[i].correctanswer[j] === but1.ininnerText) {
+            document.getElementById("but1").style.backgroundColor = "#ff0000 ";
+            console.log(true);
+            const butnext = document.createElement("button");
+            ul.append(butnext);
+            butnext.innerText = "NEXT Qustion";
+            butnext.addEventListener("click", () => {
+             
+            });
+          }
+        });
       }
-    });
-  };
+    }
+  });
+};
 
 but();
 
@@ -84,7 +89,6 @@ but11()
 
 */
 
-
 /*
 
 else if (i === 0) {
@@ -108,8 +112,6 @@ else if (i === 0) {
     }
   }
   */
-
-
 
 /*
   const but = () => {
