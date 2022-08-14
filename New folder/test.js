@@ -22,6 +22,10 @@ qustionsdiv.className = "Qdiv";
 const answersdiv = document.createElement("div");
 answersdiv.className = "Adiv";
 
+ const nextdiv = document.createElement("div")
+nextdiv.className = 'next'
+container.append(nextdiv)
+
 const qustions1 = [
   {
     qustion: "What is Your Name",
@@ -33,6 +37,14 @@ const qustions1 = [
     answer: ["30", "60", "120", "1"],
     correctanswer: "30",
   },
+{
+  qustion: "  What is the capital of jordan ",
+  answer: ["Amman", " Irbid", "Aqaba", "Zarqa"],
+  correctanswer: "Amman",
+
+}
+
+
 ];
 
 const li = document.createElement("li");
@@ -52,6 +64,7 @@ start.addEventListener("click", () => {
   start.style.display = "none";
 
   let i = 0;
+
   let q = qustions1[i].qustion;
   let a = qustions1[i].answer;
   let c = qustions1[i].correctanswer;
@@ -68,7 +81,7 @@ start.addEventListener("click", () => {
     but1.id = a[j];
     answersdiv.append(but1);
 
-    but1.classList = "but1";
+    but1.className = "but1";
 
     but1.addEventListener("click", (e) => {
       if (but1.innerText == c) {
@@ -76,28 +89,52 @@ start.addEventListener("click", () => {
         next.innerText = "Next";
         but1.style.backgroundColor = "red";
         li.append(next);
-        container.append(next);
+        nextdiv.append(next)
+        container.append(nextdiv) 
 
         next.addEventListener("click", (e) => {
+          i++;
           qustionsdiv.style.display = "none";
           answersdiv.style.display = "none";
-          next.style.display = "none";
-
-          q = qustions1[1].qustion; // mosh dynamic
-          a = qustions1[i].answer[j];
+          
+          q = qustions1[i].qustion;
+          let newa = qustions1[i].answer;
 
           p1.innerHTML = "";
           p1.append(q);
           qustionsdiv.append(p1);
-          console.log(qustions1[1].qustion);
+          
           qustionsdiv.style.display = "block";
           answersdiv.style.display = "block";
 
           let butclass = document.querySelectorAll(".but1");
+          
+          for (let x = 0; x < newa.length; x++) {
+            answersdiv.innerText = "";
+            const newButton = document.createElement("button");
+            newButton.innerText = newa[x];
+            newButton.className = "but1";
+            
+            answersdiv.append(newButton);
+            container.append(newButton);
 
-          for (let j = 0; j < a.length; j++) {
-            answersdiv.innerHTML = "";
-            butclass.innerHTML = qustions1[1].answer[j];
+            
+            
+            
+
+            
+
+           
+            /*
+            if ( i === qustions1.length -1 ) {
+              next.style.display= 'none '
+              
+              const finish = document.createElement("button")
+              finish.innerHTML = "Finish"
+              li.append(finish);
+              container.append(finish)
+            }
+            */
           }
         });
       }
