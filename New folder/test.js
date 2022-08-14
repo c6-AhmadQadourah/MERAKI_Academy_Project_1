@@ -67,9 +67,8 @@ start.addEventListener("click", () => {
     but1.innerText = a[j];
     but1.id = a[j];
     answersdiv.append(but1);
-    i++
 
-   
+    but1.classList = "but1";
 
     but1.addEventListener("click", (e) => {
       if (but1.innerText == c) {
@@ -94,11 +93,11 @@ start.addEventListener("click", () => {
           qustionsdiv.style.display = "block";
           answersdiv.style.display = "block";
 
-          
+          let butclass = document.querySelectorAll(".but1");
 
           for (let j = 0; j < a.length; j++) {
             answersdiv.innerHTML = "";
-            
+            butclass.innerHTML = qustions1[1].answer[j];
           }
         });
       }
