@@ -28,14 +28,14 @@ container.append(nextdiv)
 
 const qustions1 = [
   {
-    qustion: "What is Your Name",
-    answer: ["ahmad ", "abdulla", "anas", " mohammad"],
-    correctanswer: "ahmad",
+    qustion: "What is  The first Letter in English",
+    answer: ["A", "G", "J", "Z"],
+    correctanswer: "A",
   },
   {
-    qustion: " How old Are You ",
-    answer: ["30", "60", "120", "1"],
-    correctanswer: "30",
+    qustion: " What is The latest Ipone model ",
+    answer: ["14", "13", "12", "11"],
+    correctanswer: "14",
   },
 {
   qustion: "  What is the capital of jordan ",
@@ -59,7 +59,7 @@ li.style.display = "none";
 container.append(qustionsdiv);
 container.append(answersdiv);
 
-start.addEventListener("click", () => {
+ const Quiz =  start.addEventListener("click", () => {
   li.style.display = "block";
   start.style.display = "none";
 
@@ -114,18 +114,21 @@ start.addEventListener("click", () => {
             const newButton = document.createElement("button");
             newButton.innerText = newa[x];
             newButton.className = "but1";
-            
+             
             answersdiv.append(newButton);
-            container.append(newButton);
-
+            container.append(newButton); 
             
+          
+          }
+
+             
             
             
 
             
 
            
-            /*
+            
             if ( i === qustions1.length -1 ) {
               next.style.display= 'none '
               
@@ -134,9 +137,9 @@ start.addEventListener("click", () => {
               li.append(finish);
               container.append(finish)
             }
-            */
+            
           }
-        });
+        );
       }
     });
   }
