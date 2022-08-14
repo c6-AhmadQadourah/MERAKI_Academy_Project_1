@@ -43,6 +43,9 @@ body{
     margin: 6px;
    
 }
+
+
+
 .container {
     width: 80vw;
     max-width: 80%;
@@ -55,5 +58,22 @@ body{
     border-radius: 8px;
     text-align: center;
  }
+
+  .score {
+    width: 60vw;
+    position: relative ;
+    left: 180px ;
+    bottom: 100px ;
+    padding-top: 7%;
+    max-width: 25%;
+    background-color: rgb(52, 196, 233);
+    height: 10vh;
+    box-shadow: 0 0 5px 4px;
+    display: flexbox;
+    justify-content: center;
+    align-items:center;
+    border-radius: 8px;
+    text-align: center;
+  }
 
 

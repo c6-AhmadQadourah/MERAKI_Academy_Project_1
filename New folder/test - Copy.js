@@ -26,6 +26,11 @@ const nextdiv = document.createElement("div");
 nextdiv.className = "next";
 container.append(nextdiv);
 
+const scor = document.createElement("p");
+
+scor.innerText = "Score ";
+score.append(scor);
+
 const qustions1 = [
   {
     qustion: "What is  The first Letter in English",
@@ -50,97 +55,76 @@ ul.append(li);
 li.append(container);
 li.append(qustionsdiv);
 li.append(answersdiv);
-li.append(score);
+container.append(score);
 const li2 = document.createElement("li");
 li.style.display = "none";
 container.append(qustionsdiv);
 container.append(answersdiv);
-const next = document.createElement("button")
+const next = document.createElement("button");
 let i = 0;
+console.log(i);
 
-    let q = qustions1[i].qustion;
-    let a = qustions1[i].answer;
-    let c = qustions1[i].correctanswer;
-    const p1 = document.createElement("p");
-    p1.append(q)
+const p1 = document.createElement("p");
 
-const Quiz = () =>
-  start.addEventListener("click", () => {
-    li.style.display = "block";
-    start.style.display = "none";
+start.addEventListener("click", () => {
+  li.style.display = "block";
+  start.style.display = "none"; 
 
-    
-    ;
+});
+
+const Quiz = () => {
+  console.log(i);
+
+  let q = qustions1[i].qustion;
+  let a = qustions1[i].answer;
+  let c = qustions1[i].correctanswer;
+  p1.append(q);
+
+  
 
     qustionsdiv.append(p1);
 
     for (let j = 0; j < a.length; j++) {
       const but1 = document.createElement("button");
 
-      but1.innerText = a[j];
-      but1.id = a[j];
+      but1.innerText = qustions1[i].answer[j];
+      but1.id = qustions1[i].answer[j];
       answersdiv.append(but1);
 
       but1.className = "but1";
 
-      but1.addEventListener("click", (e) => {
-        if (but1.innerText == c) {
-          
-          
+      but1.addEventListener("click", () => {
+        if (but1.innerText == c[j]) {
           next.innerText = "Next";
           but1.style.backgroundColor = "red";
           li.append(next);
           nextdiv.append(next);
           container.append(nextdiv);
-
-          
         }
-      })
-      }
-     })
-        
- Quiz() 
-        const qn = () =>
-        
-          next.addEventListener("click", () => {
-            i++;
-            
-            qustionsdiv.style.display = "none";
-            answersdiv.style.display = "none";
+      });
+    }
+ 
+};
 
-            q = qustions1[i].qustion;
-            let newa = qustions1[i].answer;
+Quiz();
 
-            p1.innerHTML = "";
-            p1.append(q);
-            qustionsdiv.append(p1);  
+next.addEventListener("click", () => {
+  i++;
+  console.log(i);
+  const uu = document.querySelector("p");
+  answersdiv.innerText = "";
+p1.innerHTML = "";
 
-            qustionsdiv.style.display = "block";
-            answersdiv.style.display = "block";
+  Quiz();
 
-            let butclass = document.querySelectorAll(".but1");
+  let butclass = document.querySelectorAll(".but1");
+});
 
-            for (let x = 0; x < newa.length; x++) {
-              answersdiv.innerText = "";
-              const newButton = document.createElement("button");
-              newButton.innerText = newa[x];
-              newButton.className = "but1";
-              answersdiv.append(newButton);
-              container.append(newButton);
-              
-            }
+if (i === qustions1.length - 1) {
+  next.style.display = "none ";
 
-
-            if (i === qustions1.length - 1) {
-              next.style.display = "none ";
-
-              const finish = document.createElement("button");
-              finish.innerHTML = "Finish";
-              li.append(finish);
-              container.append(finish);
-              
-            }
-
-          })
-          
-          qn()
+  const finish = document.createElement("button");
+  finish.innerHTML = "Finish";
+  li.append(finish);
+  container.append(finish);
+}

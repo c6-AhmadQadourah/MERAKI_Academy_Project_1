@@ -83,8 +83,10 @@ container.append(answersdiv);
 
     but1.className = "but1";
 
-    but1.addEventListener("click", (e) => {
-      if (but1.innerText == c) {
+    but1.addEventListener("click", () => {
+
+      if (but1.innerText == c[j]) {
+       
         const next = document.createElement("button");
         next.innerText = "Next";
         but1.style.backgroundColor = "red";
