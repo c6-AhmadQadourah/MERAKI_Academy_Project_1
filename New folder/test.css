@@ -1,13 +1,56 @@
-#div1{
+
+ .start{
+
+    padding: 5%;
+    font-size: xx-large ;
+ }
 
 
-height: 500px ;
-width:  500px;
-border: 1px ;
-border-color: black;
-border-style: solid;
-align-items: center ;
+ .Qdiv{
+font-size: xx-large;
+font-weight: bold;
+background: linear-gradient(to right, #442920, #549cc9, #7a7dd9);
+    border-radius: 4px;
+    padding: 10px;
+    color: rgb(16, 16, 5);
+    margin: 6px;
+ }
+
+
+body{
+    display: grid;
+    
+        background: linear-gradient(to right, #442920, #549cc9, #7a7dd9);
+        background-repeat: no-repeat;
+        height: 100vh;
+        width: 100vw;
+       
+        align-items: center;
+       
+     
 
 }
- 
+.but1{
+    font-size: large;
+    font-weight: bold;
+    background: #14c3ef;
+    border-radius: 4px;
+    padding: 10px;
+    color: rgb(16, 16, 5);
+    margin: 6px;
+   
+}
+.container {
+    width: 80vw;
+    max-width: 80%;
+    background-color: beige;
+    height: 70vh;
+    box-shadow: 0 0 5px 4px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    text-align: center;
+ }
+
 

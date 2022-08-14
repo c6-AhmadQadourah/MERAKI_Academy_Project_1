@@ -5,13 +5,23 @@ div1.id = "Div1";
 
 const div2 = document.createElement("div");
 const ul = document.createElement("ul");
-const but0 = document.createElement("button");
-but0.innerText = "Start ";
-but0.className = "but0";
-body.append(but0);
+const start = document.createElement("button");
+start.innerText = "Start ";
+start.className = "start";
+body.append(start);
 body.append(div1);
 body.append(div2);
 body.append(ul);
+
+const container = document.createElement("div")
+container.className = 'container'
+const score = document.createElement("div")
+score.className = 'score'
+const qustionsdiv =  document.createElement("div")
+qustionsdiv.className = 'Qdiv'
+const answersdiv =document.createElement("div")
+answersdiv.className= 'Adiv'
+
 
 const qustions1 = [
   {
@@ -29,8 +39,14 @@ const qustions1 = [
 const li = document.createElement("li");
 ul.append(li);
 
+li.append(container);
+li.append(qustionsdiv)
+li.append(answersdiv)
+li.append(score)
 const li2 = document.createElement("li");
 li.style.display = "none";
+ container.append(qustionsdiv ) 
+ container.append(answersdiv ) 
 
 
 
@@ -46,35 +62,57 @@ li.style.display = "none";
 
 
 
-but0.addEventListener("click", () => {
+start.addEventListener("click", () => {
   li.style.display = "block";
-  but0.style.display= 'none'
+  start.style.display= 'none'
 
   let i = 0 ;
   let q = qustions1[i].qustion;
    let a = qustions1[i].answer
 let c = qustions1[i].correctanswer
 
-  li.append(q)
+
+qustionsdiv.append(q) 
+
+
+ 
 
   for (let j = 0; j < a.length; j++) {
     const but1 = document.createElement("button");
 
     but1.innerText = a[j];
     but1.id = a[j];
-    li.append(but1); 
-  but1.className= 'but1'
-  let butclass=  document.getElementsByClassName("butclass")
-    but1.addEventListener('click' , () => {
+    answersdiv.append(but1);  
+
+  but1.classList= 'but1'
+  
+ 
+  
+
+    but1.addEventListener('click' , (e) => {
       if ( but1.innerText == c ) {
-        butclass.innerText = ''
+
+        
         const next = document.createElement("button")
         next.innerText = 'Next'
-        but1.style.backgroundColor= 'green'
+        but1.style.backgroundColor= 'red'
         li.append(next) 
-        
+        container.append(next)
+        console.log(a)
 
-       
+         next.addEventListener('click' , (e) => {
+           
+          let butclass=  document.querySelectorAll( '.but1')
+         
+           a.forEach(element => { 
+            i++
+             butclass.innerText= ''
+
+             
+           });
+
+         })
+        
       }
 
 
