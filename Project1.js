@@ -26,27 +26,59 @@ const nextdiv = document.createElement("div");
 nextdiv.className = "next";
 container.append(nextdiv);
 
-const scor = document.createElement("p");
+const timerp = document.createElement("p")
 
-scor.innerText = "Score ";
-score.append(scor);
+timerp.id='timer'
+
+
+ const timer =  timeleft = 60;
+ let downloadTimer = setInterval(function(){
+  timeleft--;
+  document.getElementById("timer").textContent = 'Time Left '+ timeleft;
+  if(timeleft <= 0)
+      clearInterval(downloadTimer);
+  },1000);
+   
+  
+
+
+
+
+const scor = []  ;
+ const final= document.createElement("p")
+final.className = "score"
+final.innerText= []
+
 
 const qustions1 = [
   {
-    qustion: "What is  The first Letter in English",
+    qustion: "What is  The first Letter in English ? ",
     answer: ["A", "G", "J", "Z"],
     correctanswer: "A",
   },
   {
-    qustion: " What is The latest Ipone model ",
+    qustion: " What is The latest Iphone model ? ",
     answer: ["14", "13", "12", "11"],
     correctanswer: "14",
   },
   {
-    qustion: "  What is the capital of jordan ",
+    qustion: "  What is the capital of jordan ? ",
     answer: ["Amman", " Irbid", "Aqaba", "Zarqa"],
     correctanswer: "Amman",
   },
+{
+  qustion: "  What is the Best  fast food meal ? ",
+  answer: ["Shawarma", " Broasted", "Burger", "Falafel"],
+  correctanswer: "Broasted", 
+
+}, 
+{
+  qustion: "  Who is the richest person in the world? ",
+  answer: ["Jeff Bezos", " Bill Gates", "Elon Musk", "Mohammad Jouza"],
+  correctanswer: "Elon Musk", 
+}
+
+
 ];
 
 const li = document.createElement("li");
@@ -55,12 +87,13 @@ ul.append(li);
 li.append(container);
 li.append(qustionsdiv);
 li.append(answersdiv);
-container.append(score);
+
 const li2 = document.createElement("li");
 li.style.display = "none";
 container.append(qustionsdiv);
 container.append(answersdiv);
 const next = document.createElement("button");
+next.className='next'
 let i = 0;
 console.log(i);
 
@@ -70,8 +103,9 @@ start.addEventListener("click", () => {
   li.style.display = "block";
   start.style.display = "none"; 
 
+  body.append(timerp)
 });
-
+let q = qustions1
 const Quiz = () => {
   console.log(i);
 
@@ -94,13 +128,28 @@ const Quiz = () => {
       but1.className = "but1";
 
       but1.addEventListener("click", () => {
-        if (but1.innerText == c[j]) {
+
+
+       
+        but1.innerText === true 
           next.innerText = "Next";
           but1.style.backgroundColor = "red";
+          
           li.append(next);
           nextdiv.append(next);
           container.append(nextdiv);
-        }
+          
+
+          
+        
+
+          if (but1.innerText == c[j]) {
+            scor.push(5)
+          }
+
+          
+        
+           
       });
     }
  
@@ -109,22 +158,36 @@ const Quiz = () => {
 Quiz();
 
 next.addEventListener("click", () => {
+  
   i++;
-  console.log(i);
-  const uu = document.querySelector("p");
   answersdiv.innerText = "";
 p1.innerHTML = "";
 
-  Quiz();
-
+  Quiz(); 
+  
+ 
+  
   let butclass = document.querySelectorAll(".but1");
+
+ 
+  if (i === qustions1.length - 1) {
+    next.style.display = "none ";
+  
+    const finish = document.createElement("button");
+    finish.innerHTML = "Finish";
+    li.append(finish);
+    container.append(finish);
+
+ finish.addEventListener('click' , () => {
+  final.innerText= ` Your Score is
+  ${scor}  / ${q.length} `
+  score.append(final)
+  container.append(final)
+
+ }  )
+
+   
+  }
+  
 });
 
-if (i === qustions1.length - 1) {
-  next.style.display = "none ";
-
-  const finish = document.createElement("button");
-  finish.innerHTML = "Finish";
-  li.append(finish);
-  container.append(finish);
-}
