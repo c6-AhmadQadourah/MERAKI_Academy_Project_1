@@ -17,17 +17,9 @@ background: linear-gradient(to right, #bd7e68, #549cc9, #7a7dd9);
     padding: 10px;
     color: rgb(16, 16, 5);
     margin: 6px;
- /*   position: relative; 
-    top: 60%;
-*/
- }
-/*
- .Adiv{
-    position: relative;
-    top: 60%;
 
-}
-*/
+ }
+
 body{
     display: grid;
     
@@ -72,10 +64,10 @@ body{
   .score {
     width: 60vw;
     position: relative ;
-    left: 35% ;
+    left: 30% ;
     bottom: 40% ;
     padding-top: 7%;
-    max-width: 25%;
+    max-width: 50%;
     background-color: rgb(52, 196, 233);
     height: 10vh;
     box-shadow: 0 0 5px 4px;
@@ -84,6 +76,9 @@ body{
     align-items:center;
     border-radius: 8px;
     text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
 
